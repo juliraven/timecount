@@ -21,14 +21,6 @@ while True:
     
     st.write(f"Pozostało: {days} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
-    st.markdown(f"""
-    ## Szczegóły:
-    - Dni: **{days}**
-    - Godzin: **{hours}**
-    - Minut: **{minutes}**
-    - Sekund: **{seconds}**
-    """)
-
     # Dodaj opóźnienie 1 sekundy
     st.time.sleep(1)
 
