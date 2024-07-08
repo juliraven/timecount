@@ -29,9 +29,8 @@ def refresh():
         
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
         st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-        st.markdown('<span style="font-size: 24px">Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund"</span>', unsafe_allow_html=True)
-
-
+        st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
+        
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
 
