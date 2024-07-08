@@ -1,6 +1,5 @@
 import streamlit as st
 from datetime import datetime, timedelta
-import asyncio
 
 def countdown_timer(target_date):
     now = datetime.now()
@@ -24,16 +23,24 @@ def countdown_timer(target_date):
 target_date = datetime(2024, 9, 20)
 
 # Funkcja do odświeżania interfejsu co sekundę
-async def refresh():
+def refresh():
     while True:
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
-        await asyncio.sleep(1)  # Opóźnienie na 1 sekundę
+        st.markdown(f"""
+        ## Szczegóły:
+        - Dni roboczych: **{weekdays}**
+        - Godzin: **{hours}**
+        - Minut: **{minutes}**
+        - Sekund: **{seconds}**
+        """)
 
-# Uruchomienie funkcji do odświeżania asynchronicznie
-st.title("Odliczanie do 1 sierpnia 2024")
-loop = asyncio.get_event_loop()
-loop.run_until_complete(refresh())
+        # Odśwież zawartość co sekundę
+        st.experimental_rerun()
+
+# Uruchomienie funkcji do odświeżania
+st.title("Odliczanie do 20 września 2024")
+refresh()
 
