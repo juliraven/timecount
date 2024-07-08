@@ -38,7 +38,7 @@ def refresh():
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         
         st.markdown(f"""
-        ## Pozostało:
+        # Pozostało :
         - Dni : **{weekdays}**
         - Godzin : **{hours}**
         - Minut : **{minutes}**
