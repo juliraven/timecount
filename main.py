@@ -29,14 +29,6 @@ def refresh():
         
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
-        st.markdown(f"""
-        ## Szczegóły:
-        - Dni roboczych: **{weekdays}**
-        - Godzin: **{hours}**
-        - Minut: **{minutes}**
-        - Sekund: **{seconds}**
-        """)
-
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
 
