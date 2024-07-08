@@ -12,9 +12,9 @@ def countdown_timer(target_date):
     return days, hours, minutes, seconds
 
 # Ustaw datę docelową
-target_date = datetime(2024, 8, 1)
+target_date = datetime(2024, 9, 20)
 
-st.title("Odliczanie do 1 sierpnia 2024")
+st.title("Odliczanie do 20 września 2024")
 
 # Pętla odświeżania co sekundę
 while True:
