@@ -27,7 +27,6 @@ def refresh():
     while True:
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         
-        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund",font_size=90)
         st.markdown(f"""
         ## Pozostało:
         - Dni : **{weekdays}**
