@@ -1,6 +1,5 @@
 import streamlit as st
 from datetime import datetime, timedelta
-
 from streamlit_extras.let_it_rain import rain 
 
 def example():
@@ -10,6 +9,8 @@ def example():
         falling_speed=5,
         animation_length="infinite",
     )
+
+example()
 
 def countdown_timer(target_date):
     now = datetime.now()
@@ -44,7 +45,6 @@ def refresh():
         st.experimental_rerun()
 
 # Uruchomienie funkcji do odświeżania
-example()
 st.title("Odliczanie do kompika")
 refresh()
 
