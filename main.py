@@ -21,6 +21,8 @@ while True:
     
     st.write(f"Pozostało: {days} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
+    time.sleep(1)
+
     # Wymaż poprzednie wyniki
     st.empty()
 
