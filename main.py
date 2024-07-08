@@ -32,8 +32,10 @@ def refresh():
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
 
+        st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+        st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
+
 # Uruchomienie funkcji do odświeżania
 st.title("Odliczanie do kompika")
 refresh()
-st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
+
