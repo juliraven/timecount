@@ -28,11 +28,14 @@ def refresh():
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
+        st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+        st.markdown('<span style="font-size: 24px">Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund"</span>', unsafe_allow_html=True)
+
 
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
 
 # Uruchomienie funkcji do odświeżania
-st.title("Odliczanie do 20 września 2024")
+st.title("Odliczanie do kompika")
 refresh()
 
