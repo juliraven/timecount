@@ -1,41 +1,39 @@
 import streamlit as st
 from datetime import datetime, timedelta
-import time
+import asyncio
 
 def countdown_timer(target_date):
     now = datetime.now()
     delta = target_date - now
     days = delta.days
+    
+    # Oblicz liczbę dni roboczych
+    weekdays = 0
+    for i in range(days):
+        current_day = now + timedelta(days=i)
+        if current_day.weekday() < 5:  # Poniedziałek - Piątek
+            weekdays += 1
+            
     seconds = delta.seconds
     hours, seconds = divmod(seconds, 3600)
     minutes, seconds = divmod(seconds, 60)
-    return days, hours, minutes, seconds
-
-def calculate_weekdays(start_date, end_date):
-    day_count = 0
-    current_date = start_date
-
-    while current_date < end_date:
-        if current_date.weekday() < 5:  # Monday to Friday are 0-4
-            day_count += 1
-        current_date += timedelta(days=1)
     
-    return day_count
+    return weekdays, hours, minutes, seconds
 
 # Ustaw datę docelową
 target_date = datetime(2024, 9, 20)
 
-st.title("Odliczanie do 20 września 2024 (bez weekendów)")
+# Funkcja do odświeżania interfejsu co sekundę
+async def refresh():
+    while True:
+        weekdays, hours, minutes, seconds = countdown_timer(target_date)
+        
+        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
-# Pętla odświeżania co sekundę
-while True:
-    weekdays_left = calculate_weekdays(datetime.now(), target_date)
-    days, hours, minutes, seconds = countdown_timer(target_date)
-    
-    st.write(f"Pozostało : {weekdays_left} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
+        await asyncio.sleep(1)  # Opóźnienie na 1 sekundę
 
-    # Opóźnienie 1 sekundy
-    time.sleep(1)
+# Uruchomienie funkcji do odświeżania asynchronicznie
+st.title("Odliczanie do 1 sierpnia 2024")
+loop = asyncio.get_event_loop()
+loop.run_until_complete(refresh())
 
-    # Wymaż poprzednie wyniki
-    st.experimental_rerun()
