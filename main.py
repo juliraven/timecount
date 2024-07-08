@@ -2,6 +2,8 @@ import streamlit as st
 from datetime import datetime, timedelta
 from streamlit_extras.let_it_rain import rain 
 
+l, r = st.columns((2,2))
+
 def example():
     rain(
         emoji="❤️",
@@ -38,8 +40,8 @@ def refresh():
     while True:
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
-        st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-        st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
+        l.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+        r.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
         
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
