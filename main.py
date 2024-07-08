@@ -51,6 +51,7 @@ def refresh():
         st.experimental_rerun()
 
 # Uruchomienie funkcji do odświeżania
+example()
 st.title("Odliczanie do kompika")
 refresh()
 
