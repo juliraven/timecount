@@ -36,14 +36,7 @@ target_date = datetime(2024, 9, 20)
 def refresh():
     while True:
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
-        
-        st.markdown(f"""
-        # Pozostało :
-        - Dni : **{weekdays}**
-        - Godzin : **{hours}**
-        - Minut : **{minutes}**
-        - Sekund : **{seconds}**
-        """)
+        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
         st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
         st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
         
