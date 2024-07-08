@@ -10,15 +10,15 @@ def countdown_timer(target_date):
     minutes, seconds = divmod(seconds, 60)
     return days, hours, minutes, seconds
 
-st.title("Odliczanie do wybranego dnia")
+# Ustaw datę docelową
+target_date = datetime(2024, 8, 1)
 
-target_date = st.date_input("Wybierz datę końcową")
-target_time = st.time_input("Wybierz godzinę końcową", value=datetime.now().time())
+st.title("Odliczanie do 1 sierpnia 2024")
 
-if target_date:
-    target_datetime = datetime.combine(target_date, target_time)
-    days, hours, minutes, seconds = countdown_timer(target_datetime)
-
+# Pętla odświeżania co sekundę
+while True:
+    days, hours, minutes, seconds = countdown_timer(target_date)
+    
     st.write(f"Pozostało: {days} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
     st.markdown(f"""
@@ -28,5 +28,10 @@ if target_date:
     - Minut: **{minutes}**
     - Sekund: **{seconds}**
     """)
-else:
-    st.write("Wybierz datę i godzinę, aby rozpocząć odliczanie.")
+
+    # Dodaj opóźnienie 1 sekundy
+    st.time.sleep(1)
+
+    # Wymaż poprzednie wyniki
+    st.empty()
+
