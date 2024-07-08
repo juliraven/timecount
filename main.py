@@ -23,24 +23,16 @@ def calculate_weekdays(start_date, end_date):
     return day_count
 
 # Ustaw datę docelową
-target_date = datetime(2024, 8, 1)
+target_date = datetime(2024, 9, 20)
 
-st.title("Odliczanie do 1 sierpnia 2024 (bez sobót i niedziel)")
+st.title("Odliczanie do 20 września 2024 (bez weekendów)")
 
 # Pętla odświeżania co sekundę
 while True:
     weekdays_left = calculate_weekdays(datetime.now(), target_date)
     days, hours, minutes, seconds = countdown_timer(target_date)
     
-    st.write(f"Pozostało: {weekdays_left} dni roboczych, {hours} godzin, {minutes} minut, {seconds} sekund")
-
-    st.markdown(f"""
-    ## Szczegóły:
-    - Dni roboczych: **{weekdays_left}**
-    - Godzin: **{hours}**
-    - Minut: **{minutes}**
-    - Sekund: **{seconds}**
-    """)
+    st.write(f"Pozostało : {weekdays_left} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
 
     # Opóźnienie 1 sekundy
     time.sleep(1)
