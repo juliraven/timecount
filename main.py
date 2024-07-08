@@ -28,12 +28,11 @@ def refresh():
         weekdays, hours, minutes, seconds = countdown_timer(target_date)
         
         st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund",font_size=90)
+        st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+        st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
         
         # Odśwież zawartość co sekundę
         st.experimental_rerun()
-
-        st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-        st.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
 
 # Uruchomienie funkcji do odświeżania
 st.title("Odliczanie do kompika")
