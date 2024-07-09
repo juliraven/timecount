@@ -28,22 +28,22 @@ def countdown_timer(target_date):
             
     seconds = delta.seconds
     hours, seconds = divmod(seconds, 3600)
-    minutes, seconds = divmod(seconds, 60)
+    minutes, _ = divmod(seconds, 60)
     
-    return weekdays, hours, minutes, seconds
+    return weekdays, hours, minutes
 
 # Ustaw datę docelową
 target_date = datetime(2024, 9, 20)
 
-# Funkcja do odświeżania interfejsu co sekundę
+# Funkcja do odświeżania interfejsu co minutę
 def refresh():
     while True:
-        weekdays, hours, minutes, seconds = countdown_timer(target_date)
-        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut, {seconds} sekund")
+        weekdays, hours, minutes = countdown_timer(target_date)
+        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut")
         l.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
         r.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
         
-        # Odśwież zawartość co sekundę
+        # Odśwież zawartość co minutę
         st.experimental_rerun()
 
 # Uruchomienie funkcji do odświeżania
