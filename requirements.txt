@@ -1,3 +1,4 @@
 streamlit
 datetime
 streamlit_extras
+streamlit_autorefresh
