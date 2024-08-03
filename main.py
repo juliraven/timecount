@@ -1,6 +1,7 @@
 import streamlit as st
 from datetime import datetime, timedelta
 from streamlit_extras.let_it_rain import rain 
+from streamlit_autorefresh import st_autorefresh
 
 l, r = st.columns((2,2))
 
@@ -36,17 +37,15 @@ def countdown_timer(target_date):
 target_date = datetime(2024, 9, 20)
 
 # Funkcja do odświeżania interfejsu co minutę
-def refresh():
-    while True:
-        weekdays, hours, minutes = countdown_timer(target_date)
-        st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut")
-        l.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-        r.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
-        
-        # Odśwież zawartość co minutę
-        st.experimental_rerun()
+def display_countdown():
+    weekdays, hours, minutes = countdown_timer(target_date)
+    st.write(f"Pozostało : {weekdays} dni, {hours} godzin, {minutes} minut")
+    l.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+    r.markdown("![Alt Text](https://www.icegif.com/wp-content/uploads/2023/01/icegif-666.gif)")
 
 # Uruchomienie funkcji do odświeżania
 st.title("Odliczanie do kompika")
-refresh()
+display_countdown()
 
+# Automatyczne odświeżanie co minutę
+st_autorefresh(interval=60000, key="refresh")
